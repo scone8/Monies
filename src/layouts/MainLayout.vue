@@ -6,9 +6,19 @@
             round 
             dense 
             icon="menu" />
-          <q-toolbar-title>Monies</q-toolbar-title>
-          <div> {{ todaysDate }} </div>
+          <!--<q-toolbar-title>Monies</q-toolbar-title>
+          <div> {{ todaysDate }} </div>-->
+
         </q-toolbar>
+        <div class="q-px-lg g-pt-xxl q-mb-md header">
+          <div class="text-h3">Check Me Monies</div>
+          <div class="text-subtitle1">{{ todaysDate }}</div>
+        </div>
+        <q-img 
+          src="statics/icons/money.jpg"
+          class="header-image absolute-top"
+
+          />
       </q-header>
 
       <q-drawer
@@ -138,8 +148,15 @@ export default {
 
 <style>
 
-.budget-title{
-  size: 100rem
+.header-image {
+  height: 100%;
+  z-index: -1;
+  opacity: 0.2;
+  filter: grayscale(100%)
+}
+
+.header{
+  text-align: center;
 }
 
 </style>

@@ -9,12 +9,14 @@
         :key="input.id" >
         <div class="col-md-5 col-sm-5 q-pr-lg">
           <q-input
+          filled
             :placeholder="title + ' Type'" 
             v-model="input.name" />
         </div>
         
         <div class="col-md-5 col-sm-4 q-pr-lg">
           <q-input 
+            filled
             v-model="input.amount" 
             label='€'
               @change="CalculateTotal()" />  
@@ -28,10 +30,12 @@
         </div>
       </div>
 
-      <q-btn icon="add" 
-        @click="AddItem" 
-        color="primary" 
-        flat class="q-ml-sm"/>
+      <div class='add-button'>
+        <q-btn icon="add" 
+          @click="AddItem" 
+          color="primary" 
+          flat />
+        </div>
     </q-form>
   </div>
 </template>
@@ -55,7 +59,7 @@ export default {
   methods: {
     AddItem() {
       var newId = this.inputFieldList.lenght
-      this.inputFieldList.push({id: newId, name: '', amount: 0})
+      this.inputFieldList.push({id: newId, name: '', amount: ''})
     },
     DeleteInput(id){
       var number = id-1
@@ -72,3 +76,8 @@ export default {
   }
 }
 </script>
+<style scoped>
+.add-button{
+  text-align: center;
+}
+</style>

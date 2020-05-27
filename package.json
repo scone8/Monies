@@ -2,7 +2,7 @@
   "name": "monies",
   "version": "0.0.1",
   "description": "A Quasar Framework app",
-  "productName": "Monies",
+  "productName": "Check Me Monies",
   "cordovaId": "org.cordova.quasar.app",
   "capacitorId": "",
   "author": "scone8 <alecowens9@gmail.com>",
