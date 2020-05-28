@@ -4,29 +4,34 @@
       class="q-gutter-md"
     >
 
-      <div class="inputItem row " 
-        v-for="input in inputFieldList" 
+      <div class="inputItem row" 
+        v-for="(input,index) in inputFieldList" 
         :key="input.id" >
-        <div class="col-md-5 col-sm-5 q-pr-lg">
+        
+        <div class="col-5">
           <q-input
-          filled
+            class="q-pr-lg input-type"
+            filled
+            dense
             :placeholder="title + ' Type'" 
             v-model="input.name" />
         </div>
         
-        <div class="col-md-5 col-sm-4 q-pr-lg">
+        <div class="col-5">
           <q-input 
             filled
             v-model="input.amount" 
+            dense
             label='€'
               @change="CalculateTotal()" />  
         </div>
 
-        <div class="col-md-1 col-sm-1">
+        <div class="col-2">
           <q-btn icon="delete" 
-            @click="DeleteInput(input.id), CalculateTotal()" 
+            @click="DeleteInput(index), CalculateTotal()" 
             color="primary"
-            flat class="q-ml-sm center"/>  
+            flat 
+            class="delete-btn"/>  
         </div>
       </div>
 
@@ -48,7 +53,6 @@ export default {
     return {
       inputFieldList: [
         {
-          id: 0,
           name:'',
           amount: ''
         }
@@ -58,12 +62,10 @@ export default {
   },
   methods: {
     AddItem() {
-      var newId = this.inputFieldList.lenght
-      this.inputFieldList.push({id: newId, name: '', amount: ''})
+      this.inputFieldList.push({name: '', amount: ''})
     },
-    DeleteInput(id){
-      var number = id-1
-      this.inputFieldList.splice(number, 1)
+    DeleteInput(index){
+      this.inputFieldList.splice(index, 1)
     },
     CalculateTotal () {
       this.total = 0

@@ -1,7 +1,7 @@
 <template>
   <q-page padding>
-      <div class="q-pl-lg budget-title">
-        {{title}}
+      <div class="q-pl-lg">
+        <p class="budget-title">{{title}}</p>
       </div>
     <q-expansion-item
       dense-toggle
@@ -90,3 +90,11 @@ export default {
   }
 }
 </script>
+
+<style lang="stylus">
+.budget-title{
+  color: #800080;
+  font-size: 20px;
+  font-weight:bold;
+}
+</style>

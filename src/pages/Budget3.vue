@@ -1,7 +1,7 @@
 <template>
   <q-page padding>
-      <div class="q-pl-lg budget-title">
-        {{title}}
+      <div class="q-pl-lg">
+        <p class="budget-title">{{title}}</p>
       </div>
     <q-expansion-item
       dense-toggle
@@ -17,7 +17,7 @@
         </q-item-section>
 
         <q-item-section side>
-          ${{IncomeCollapseTotal}}
+          €{{IncomeCollapseTotal}}
         </q-item-section>
       </template>
       <q-card>
@@ -29,7 +29,6 @@
     </q-expansion-item>
     <q-expansion-item
       dense-toggle
-      expand-separator
     >
       <template v-slot:header>
         <q-item-section avatar>
@@ -41,7 +40,7 @@
         </q-item-section>
 
         <q-item-section side>
-          ${{ExpenseCollapseTotal}}
+          €{{ExpenseCollapseTotal}}
         </q-item-section>
       </template>
       <q-card>
@@ -53,14 +52,11 @@
       </q-card>
       
     </q-expansion-item>
-    <q-card>
-        <q-card-section>
-          <FinalTotal 
-            :IncomeTotal="IncomeCollapseTotal"
-            :ExpenseTotal="ExpenseCollapseTotal"
-           />
-        </q-card-section>
-      </q-card>
+    <FinalTotal 
+      :IncomeTotal="IncomeCollapseTotal"
+      :ExpenseTotal="ExpenseCollapseTotal"
+    />
+    
   </q-page>
 </template>
 
@@ -95,8 +91,10 @@ export default {
 }
 </script>
 
-<style>
-
-
-
+<style lang="stylus">
+.budget-title{
+  color: #800080;
+  font-size: 20px;
+  font-weight:bold;
+}
 </style>

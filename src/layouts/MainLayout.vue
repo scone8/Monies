@@ -1,6 +1,6 @@
 <template>
     <q-layout view="hHh Lpr lff"  class="shadow-2 rounded-borders">
-      <q-header elevated>
+      <q-header>
         <q-toolbar>
           <q-btn flat @click="drawer = !drawer" 
             round 
@@ -10,8 +10,8 @@
           <div> {{ todaysDate }} </div>-->
 
         </q-toolbar>
-        <div class="q-px-lg g-pt-xxl q-mb-md header">
-          <div class="text-h3">Check Me Monies</div>
+        <div class="q-mb-md header">
+          <div class="text-h5">Check Me Monies</div>
           <div class="text-subtitle1">{{ todaysDate }}</div>
         </div>
         <q-img 
