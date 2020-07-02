@@ -5,11 +5,23 @@ const routes = [
     component: () => import('layouts/MainLayout.vue'),
     children: [
       { path: '', component: () => import('pages/Budget.vue'), props: {title: 'Budget 1'}},
-      { path: 'Budget2', component: () => import('pages/Budget2.vue'), props: {title: 'Budget 2'}},
-      { path: 'Budget3', component: () => import('pages/Budget3.vue'), props: {title: 'Budget 3'}}
+      { path: 'Budget2', component: () => import('pages/Budget.vue'), props: {title: 'Budget 2'}},
+      { path: 'Budget3', component: () => import('pages/Budget.vue'), props: {title: 'Budget 3'}}
     
     ]
-  }
+  }/*,
+  {
+    path: '/account',
+    component: () => import ("pages/AccountSettings.vue")
+  },
+  {
+    path: '/signin',
+    component: () => import ("pages/SignIn.vue")
+  },
+  {
+    path: '/signup',
+    component: () => import ("pages/SignUp.vue")
+  }*/
 ]
 
 // Always leave this as last one

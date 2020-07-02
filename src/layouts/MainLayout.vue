@@ -6,8 +6,6 @@
             round 
             dense 
             icon="menu" />
-          <!--<q-toolbar-title>Monies</q-toolbar-title>
-          <div> {{ todaysDate }} </div>-->
 
         </q-toolbar>
         <div class="q-mb-md header">
@@ -72,7 +70,7 @@
 
       <q-page-container>
         <keep-alive>
-          <router-view />
+          <router-view :key="$route.path"></router-view>/>
         </keep-alive>
       </q-page-container>
     </q-layout>

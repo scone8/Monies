@@ -1,8 +1,12 @@
 <template>
   <q-page padding>
-      <div class="q-pl-lg">
-        <p class="budget-title">{{title}}</p>
+      <div class="q-pl-lg row">
+        <div class="col-11">
+           <p class="budget-title">{{title}}</p>
+        </div>
+              
       </div>
+
     <q-expansion-item
       dense-toggle
       expand-separator
@@ -23,7 +27,9 @@
       <q-card>
         <q-card-section>
           <EnterMoney title="Income"
-            @CalculateTotal="UpdateIncomeTotal" />
+            @CalculateTotal="UpdateIncomeTotal"
+            @AddItem="IncomeList"
+            @DeleteItem="IncomeList"/>
         </q-card-section>
       </q-card>
     </q-expansion-item>
@@ -46,8 +52,10 @@
       <q-card>
         <q-card-section>
           <EnterMoney 
-          title="Expenses" 
-          @CalculateTotal="UpdateExpensesTotal" />
+            title="Expenses" 
+            @CalculateTotal="UpdateExpensesTotal"
+            @AddItem="ExpenseList"
+            @DeleteItem="ExpenseList" />
         </q-card-section>
       </q-card>
       
@@ -72,7 +80,9 @@ export default {
     return {
       ExpenseCollapseTotal:0,
       IncomeCollapseTotal: 0,
-      FinalTotal: 0
+      FinalTotal: 0,
+      IncomeList: [],
+      ExpenseList: []
     }
   },
   components:{
@@ -81,11 +91,11 @@ export default {
   },
   methods: {
     UpdateIncomeTotal(amount) {
-      this.IncomeCollapseTotal = amount
+      this.IncomeCollapseTotal = amount.toFixed(2)
 
     },
     UpdateExpensesTotal(amount) {
-      this.ExpenseCollapseTotal = amount
+      this.ExpenseCollapseTotal = amount.toFixed(2)
     }
   }
 }
@@ -97,4 +107,5 @@ export default {
   font-size: 20px;
   font-weight:bold;
 }
+
 </style>

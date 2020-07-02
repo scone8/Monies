@@ -63,9 +63,11 @@ export default {
   methods: {
     AddItem() {
       this.inputFieldList.push({name: '', amount: ''})
+      this.$emit(this.title + 'List', this.inputFieldList)
     },
     DeleteInput(index){
       this.inputFieldList.splice(index, 1)
+      this.$emit(this.title + 'List', this.inputFieldList)
     },
     CalculateTotal () {
       this.total = 0
@@ -73,7 +75,7 @@ export default {
         this.total = parseFloat(this.inputFieldList[i].amount) + parseFloat(this.total)
       }
       this.$emit('CalculateTotal', this.total)
-      return this.total;
+      return this.total.toFixed(2);
     }
   }
 }

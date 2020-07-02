@@ -15,7 +15,8 @@ export default {
   },
   methods: {
     ComputeTotal(){
-        return this.total =  this.IncomeTotal - this.ExpenseTotal
+        this.total =  this.IncomeTotal - this.ExpenseTotal
+        return this.total.toFixed(2)
     }
   }
 }
